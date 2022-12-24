@@ -35,10 +35,10 @@ function App() {
   }, [debouncedSearch])
 
   return (
-    <div className="App bg-bege text-quase-preto">
-      <h1 className="font-bold">QUOTES</h1>
+    <div className="App bg-bege text-quase-preto h-screen">
+      <h1 className="font-bold p-4 text-left">!quote</h1>
       <input 
-        className="border-transparent focus-visible:outline-none focus:ring-0 focus:border-transparent p-8 text-2xl w-full text-center text-quase-preto" 
+        className="focus-visible:outline-none focus:ring-0 focus:border-transparent font-bold p-8 text-2xl bg-bege w-1/2 text-center text-marronzinho carret-marronzinho" 
         type="text" 
         autoFocus
         onChange={e => handleOnChange(e.currentTarget.value)}
