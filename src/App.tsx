@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Quote from './components/Quote'
+import axios from 'axios'
 import './App.css';
 
-function App() {
+export interface resultDto{
+  quoteNumber: number;
+  quote: string;
+}
+
+function App() { 
+  // const query = '';
+  const [result, setResult] = useState<resultDto[]>([])
+
+  async function handleOnChange(q: string){ 
+    const response = await axios.get('https://api.feras.club/quotes/search/' + q)
+    console.log(response.data)
+    setResult(response.data)
+  }
+  
+  // useEffect(() => {
+
+  // }, [query])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="font-bold">QUOTES</h1>
+      <input 
+        className="border-transparent focus-visible:outline-none focus:ring-0 focus:border-transparent p-8 text-2xl w-full text-center" 
+        type="text" 
+        // value={query}
+        onChange={e => handleOnChange(e.currentTarget.value)}
+      />
+      {result.map((r: resultDto) => <Quote quote={r} />)}
     </div>
   );
 }
