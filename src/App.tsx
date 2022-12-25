@@ -3,6 +3,7 @@ import Quote from './components/Quote'
 import axios from 'axios'
 import './App.css';
 import useDebounce from './hooks/useDebounce';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 export interface resultDto{
   quoteNumber: number;
@@ -37,12 +38,16 @@ function App() {
   return (
     <div className="App bg-bege text-quase-preto h-screen">
       <h1 className="font-bold p-4 text-left">!quote</h1>
-      <input 
-        className="focus-visible:outline-none focus:ring-0 focus:border-transparent font-bold p-8 text-2xl bg-bege w-1/2 text-center text-marronzinho carret-marronzinho" 
-        type="text" 
-        autoFocus
-        onChange={e => handleOnChange(e.currentTarget.value)}
-      />
+      <div className="border-solid border-8 border-black m-8 flex items-center px-8 w-3/4 md:w-1/2 lg:2-1/3 mx-auto" >
+        <MagnifyingGlassIcon  width="40" height="40"/>
+        <input 
+          className="focus-visible:outline-none focus:ring-0 focus:border-transparent font-bold w-full p-8 text-xl bg-bege text-center text-marronzinho carret-marronzinho focus:shadow-sm " 
+          // className="font-bold ring-0 bg-bege border-solid border-4 focus:ring-0 focus:border-solid focus:border-4"
+          type="text" 
+          autoFocus
+          onChange={e => handleOnChange(e.currentTarget.value)}
+        />
+      </div>
       {loading && <img src='/pamonha.gif' alt='pera ai'/>}
       {result.map((r: resultDto) => <Quote quote={r} />)}
     </div>
