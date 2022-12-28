@@ -49,7 +49,7 @@ function App() {
         />
       </div>
       {loading && <img src='/pamonha.gif' alt='pera ai'/>}
-      {result.map((r: resultDto) => <Quote quote={r} />)}
+      {result.map((r: resultDto, index: number) => <div key={index}><Quote quote={r} /></div>)}
     </div>
   );
 }
