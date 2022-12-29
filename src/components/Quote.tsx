@@ -1,25 +1,22 @@
-import * as Dialog from '@radix-ui/react-dialog'
+// import * as Dialog from '@radix-ui/react-dialog'
+import * as HoverCard from '@radix-ui/react-hover-card'
 
 export default function Quote({quote}: any){
     return(
-        <Dialog.Root>
-            <Dialog.Trigger asChild>
-                <div className="text-left py-4 md:px-32 text-xl md:mx-32 mx-16 bg-bege text-marronzinho hover:text-quase-preto hover:shadow-lg">
+        <HoverCard.Root>
+            <HoverCard.Trigger asChild>
+                <div className="Button text-left py-4 md:px-32 text-xl md:mx-32 mx-16 bg-bege text-marronzinho hover:text-quase-preto hover:font-bold hover:cursor-pointer hover:border-solid hover:border-1">
                     #{quote.quoteNumber} - {quote.quote}
                 </div>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-                <Dialog.Overlay className='DialogOverlay'>
-                    <Dialog.Content className='DialogContent'>
-                        <Dialog.Title className='DialogTitle'>
-                            #{quote.quoteNumber} - {quote.quote}
-                        </Dialog.Title>
-                        <Dialog.Description className='DialogDescription'>
-                            {quote.lore}
-                        </Dialog.Description>
-                    </Dialog.Content>
-                </Dialog.Overlay>
-            </Dialog.Portal>
-        </Dialog.Root>
+            </HoverCard.Trigger>
+            <HoverCard.Portal className='bg-marronzinho border-solid border-1'>
+                <HoverCard.Content className='DialogContent bg-white border-solid border-1 p-8 round-2'>
+                    <div>
+                        {quote.lore}
+                    </div>
+                        <HoverCard.Arrow className="HoverCardArrow fill-white" />
+                </HoverCard.Content>
+            </HoverCard.Portal>
+        </HoverCard.Root>
     )
 }

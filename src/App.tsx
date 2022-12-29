@@ -6,6 +6,7 @@ import useDebounce from './hooks/useDebounce';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 export interface resultDto{
+  lore: string;
   quoteNumber: number;
   quote: string;
 }
@@ -37,7 +38,7 @@ function App() {
 
   return (
     <div className="App bg-bege text-quase-preto h-screen">
-      <h1 className="font-bold p-4 text-left">!quote</h1>
+      <h1 className="font-bold p-4 text-left fixed bottom-10 right-0">!quote</h1>
       <div className="border-solid border-8 border-black m-8 flex items-center px-8 w-3/4 md:w-1/2 lg:2-1/3 mx-auto" >
         <MagnifyingGlassIcon  width="40" height="40"/>
         <input 
